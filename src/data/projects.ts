@@ -3,15 +3,14 @@ export type Project = {
   title: string;
   industry: string;
   tagline: string;
+  featuredThumbnail: string;
   coverImage: string;
   featured: boolean;
   role: string;
   timeline: string;
-  team: string;
+  tools: string;
+  deliverable: string;
   topOutcome: string;
-  country?: string;
-  platform?: string;
-  heroColor?: string;
 };
 
 export const projects: Project[] = [
@@ -20,16 +19,15 @@ export const projects: Project[] = [
     title: "mySecondTeacher",
     industry: "ED-TECH",
     tagline:
-      "Scaling a multi-role learning platform that scaled across Nepal and Southeast Asia.",
-    coverImage: "/images/mst-featured-thumb.png",
+      "Scaling Global Ed-Tech with Localized Design. An interactive video player with embedded quiz checkpoints and diagnostic tools.",
+    featuredThumbnail: "/images/mst-featured-thumb.png",
+    coverImage: "/images/mst.png",
     featured: true,
-    role: "Product Design/Design Team Lead",
-    timeline: "2019 — 2021",
-    team: "3 Designers, 12 Engineers",
-    topOutcome: "Scaled to 500+ schools across SEA",
-    country: "Nepal",
-    platform: "Web, Mobile",
-    heroColor: "#7D42C1",
+    role: "Product Owner, Design Team Lead",
+    timeline: "2019 – 2023",
+    tools: "Figma, Sketch",
+    deliverable: "Ed-Tech",
+    topOutcome: "500+ schools adopted across Nepal and SE Asia.",
   },
   {
     slug: "meromomma",
@@ -37,12 +35,14 @@ export const projects: Project[] = [
     industry: "CONSUMER",
     tagline:
       "Building a pregnancy and parenting platform that brings health tools, shopping, community, and expert access together for Nepali parents.",
-    coverImage: "/images/meromomma-featured-thumb.png",
+    featuredThumbnail: "/images/meromomma-featured-thumb.png",
+    coverImage: "/images/meromomma.png",
     featured: true,
     role: "Project Manager",
-    timeline: "2022 — 2023",
-    team: "2 Designers, 8 Engineers",
-    topOutcome: "100k+ active users in Nepal",
+    timeline: "2021 – 2022",
+    tools: "Figma",
+    deliverable: "Consumer App",
+    topOutcome: "10k+ active users within 3 months of launch.",
   },
   {
     slug: "medilink",
@@ -50,12 +50,14 @@ export const projects: Project[] = [
     industry: "HEALTHCARE",
     tagline:
       "Unifying six fragmented healthcare portals into one consistent, trustworthy ecosystem for patients, doctors, and providers.",
-    coverImage: "/images/medilink-featured-thumb.png",
+    featuredThumbnail: "/images/medilink-featured-thumb.png",
+    coverImage: "/images/medilink.png",
     featured: true,
     role: "Design Team Lead",
-    timeline: "2021 — 2022",
-    team: "4 Designers, 15 Engineers",
-    topOutcome: "Reduced patient check-in time by 40%",
+    timeline: "2020 – 2021",
+    tools: "Figma, Miro",
+    deliverable: "Web Platform",
+    topOutcome: "Unified 6 portals into a single trusted ecosystem.",
   },
   {
     slug: "inova",
@@ -63,12 +65,14 @@ export const projects: Project[] = [
     industry: "BIO PHARMA",
     tagline:
       "Redesigning a legacy biopharma compliance platform — replacing document-heavy workflows with a structured, intuitive system.",
-    coverImage: "/images/inova-featured-thumb.png",
+    featuredThumbnail: "/images/inova-featured-thumb.png",
+    coverImage: "/images/inova.png",
     featured: true,
     role: "Project Manager",
-    timeline: "2020 — 2021",
-    team: "2 Designers, 10 Engineers",
-    topOutcome: "Improved compliance audit pass rate by 25%",
+    timeline: "2022 – 2023",
+    tools: "Figma",
+    deliverable: "Enterprise SaaS",
+    topOutcome: "Reduced compliance workflow time by 40%.",
   },
 ];
 
@@ -83,4 +87,3 @@ export function getProjectBySlug(slug: string): Project | undefined {
 export function getAllSlugs(): string[] {
   return projects.map((p) => p.slug);
 }
-

@@ -1,68 +1,64 @@
+"use client";
+
+import Image from "next/image";
 import type { Project } from "@/data/projects";
 
-type CaseStudyHeaderProps = {
-  project: Project;
-};
+type Props = { project: Project };
 
-export function CaseStudyHeader({ project }: CaseStudyHeaderProps) {
+export function CaseStudyHeader({ project }: Props) {
   return (
-    <header className="pt-24 pb-16 md:pt-36 md:pb-24">
-      <div className="content-width">
-        {/* Industry Label */}
-        <span className="block font-mono text-[11px] tracking-[0.08em] text-[var(--color-muted)] uppercase mb-8">
+    <header>
+      {/* ── Title block — padded below fixed nav (h-24 = 96px) ── */}
+      <div
+        className="content-width"
+        style={{ paddingTop: "136px", paddingBottom: "32px" }}
+      >
+        <span className="block font-mono text-[11px] leading-4 uppercase tracking-[0.06em] text-[var(--color-muted)] mb-4">
           {project.industry}
         </span>
 
-        {/* Title */}
-        <h1 className="text-[48px] md:text-[64px] font-bold leading-[1.1] tracking-tight max-w-[800px] mb-8">
+        <h1 className="text-[48px] md:text-[64px] font-bold leading-[1.05] tracking-[-0.02em] max-w-[720px] mb-5">
           {project.title}
         </h1>
 
-        {/* Tagline */}
-        <p className="text-[var(--color-muted)] text-[18px] md:text-[20px] max-w-[600px] leading-[1.6] mb-16">
+        <p className="text-[16px] leading-[1.75] text-[#2D2D2D] max-w-[520px] mb-10">
           {project.tagline}
         </p>
 
-        {/* Details Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-[#e8e8e8] pt-12">
-          <div>
-            <span className="block font-mono text-[10px] tracking-[0.08em] text-[var(--color-muted)] uppercase mb-3">
-              Role
-            </span>
-            <p className="font-semibold text-[15px]">{project.role}</p>
-          </div>
-          <div>
-            <span className="block font-mono text-[10px] tracking-[0.08em] text-[var(--color-muted)] uppercase mb-3">
-              Timeline
-            </span>
-            <p className="font-semibold text-[15px]">{project.timeline}</p>
-          </div>
-          <div>
-            <span className="block font-mono text-[10px] tracking-[0.08em] text-[var(--color-muted)] uppercase mb-3">
-              Country
-            </span>
-            <p className="font-semibold text-[15px]">
-              {project.country || "Nepal"}
-            </p>
-          </div>
-          <div>
-            <span className="block font-mono text-[10px] tracking-[0.08em] text-[var(--color-muted)] uppercase mb-3">
-              Platform
-            </span>
-            <p className="font-semibold text-[15px]">
-              {project.platform || "Web, Mobile"}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Hero image placeholder */}
-      <div className="content-width mt-20">
-        <div 
-          className="aspect-[16/8] flex items-center justify-center text-white/20 text-sm"
-          style={{ backgroundColor: project.heroColor || "#f5f5f5" }}
+        {/* Cover image — inside content-width */}
+        <div
+          className="w-full relative overflow-hidden bg-[#F7F7F7]"
+          style={{ height: "min(55vw, 560px)" }}
         >
-          Cover image — {project.title}
+          <Image
+            src={project.coverImage}
+            alt={project.title}
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </div>
+
+        {/* Metadata row */}
+        <div className="flex flex-wrap border-t border-[var(--color-border)] mt-12">
+          {[
+            { label: "ROLE", value: project.role },
+            { label: "TIMELINE", value: project.timeline },
+            { label: "INDUSTRY", value: project.industry },
+            { label: "TOOLS USED", value: project.tools },
+          ].map(({ label, value }) => (
+            <div
+              key={label}
+              className="py-8 pr-12 md:pr-24 last:pr-0"
+            >
+              <span className="block font-mono text-[11px] leading-4 uppercase tracking-[0.06em] text-[var(--color-muted)] mb-2">
+                {label}
+              </span>
+              <p className="text-[16px] font-semibold text-[#161616] leading-snug">
+                {value}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </header>

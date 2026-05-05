@@ -23,7 +23,7 @@ export default function Home() {
 
           {/* Label */}
           <motion.span
-            className="block font-mono text-[11px] tracking-[0.08em] text-[var(--color-muted)] uppercase mb-8"
+            className="block font-mono text-[14px] leading-5 font-normal uppercase tracking-normal text-[var(--color-muted)] mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
@@ -33,7 +33,7 @@ export default function Home() {
 
           {/* H1 */}
           <motion.h1
-            className="text-[48px] md:text-[72px] font-bold leading-[1.08] tracking-tight max-w-[860px] mb-8"
+            className="text-[48px] md:text-[72px] font-bold leading-[1.05] tracking-[-0.02em] max-w-[860px] mb-8"
             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -44,7 +44,7 @@ export default function Home() {
 
           {/* Subtext */}
           <motion.p
-            className="text-[var(--color-muted)] text-[17px] md:text-[18px] max-w-[560px] mb-12 leading-[1.65]"
+            className="text-[var(--color-body)] text-[16px] max-w-[560px] mb-12 leading-[1.75]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
@@ -67,13 +67,13 @@ export default function Home() {
       </section>
 
       {/* ── Work ── */}
-      <section id="work" className="border-t border-[#e8e8e8] pt-24 pb-0">
+      <section id="work" className="border-t border-[var(--color-border)] pt-24 pb-0">
         <div className="content-width">
           <FadeIn>
-            <span className="block font-mono text-[10px] tracking-[0.08em] text-[var(--color-muted)] uppercase mb-3">
+            <span className="block font-mono text-[14px] leading-5 font-normal uppercase tracking-normal text-[var(--color-muted)] mb-3">
               SELECTED PROJECTS
             </span>
-            <h2 className="text-[36px] font-bold tracking-tight mb-14">
+            <h2 className="text-[36px] font-bold tracking-[-0.01em] mb-14">
               THE WORKS
             </h2>
           </FadeIn>
@@ -83,17 +83,17 @@ export default function Home() {
               <ProjectCard key={project.slug} project={project} index={i} />
             ))}
             {/* Closing border */}
-            <div className="border-t border-[#e8e8e8]" />
+            <div className="border-t border-[var(--color-border)]" />
           </div>
         </div>
       </section>
 
       {/* ── About ── */}
-      <section id="about" className="border-t border-[#e8e8e8] py-4 md:py-16">
+      <section id="about" className="border-t border-[var(--color-border)] py-4 md:py-16">
         <div className="content-width">
           <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-16">
             <FadeIn>
-              <span className="block font-mono text-[10px] tracking-[0.08em] text-[var(--color-muted)] uppercase mt-1">
+              <span className="block font-mono text-[14px] leading-5 font-normal uppercase tracking-normal text-[var(--color-muted)] mt-1">
                 ABOUT ME
               </span>
             </FadeIn>
@@ -101,13 +101,13 @@ export default function Home() {
             <div className="space-y-6 max-w-[680px]">
               {aboutParagraphs.map((text, index) => (
                 <FadeIn key={index} delay={index * 0.15}>
-                  <p className="text-[var(--color-text)] text-[16px] leading-[1.75]">
+                  <p className="text-[var(--color-body)] text-[16px] leading-[1.75]">
                     {text}
                   </p>
                 </FadeIn>
               ))}
               <FadeIn delay={aboutParagraphs.length * 0.15}>
-                <p className="italic text-[var(--color-muted)] text-[15px] leading-[1.6] pt-4">
+                <p className="italic text-[var(--color-body)] text-[14px] leading-[1.65] pt-4">
                   &ldquo;Good design doesn&apos;t have to shout — It just has
                   to work.&rdquo;
                 </p>
@@ -118,17 +118,17 @@ export default function Home() {
       </section>
 
       {/* ── Contact ── */}
-      <section id="contact" className="border-t border-[#e8e8e8] py-4">
+      <section id="contact" className="border-t border-[var(--color-border)] py-4">
         <div className="content-width">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
 
             <div>
-              <span className="block font-mono text-[10px] tracking-[0.08em] text-[var(--color-muted)] uppercase mb-3">
+              <span className="block font-mono text-[14px] leading-5 font-normal uppercase tracking-normal text-[var(--color-muted)] mb-3">
                 GET IN TOUCH
               </span>
               <motion.a
                 href="mailto:reshma.manandhar.np@gmail.com"
-                className="text-[14px] text-[var(--color-text)] relative inline-flex flex-col"
+                className="text-[14px] text-[var(--color-body)] relative inline-flex flex-col"
                 initial="rest"
                 whileHover="hover"
                 animate="rest"
@@ -145,7 +145,7 @@ export default function Home() {
               </motion.a>
             </div>
 
-            <div className="flex gap-8 text-[13px] font-medium text-[var(--color-text)]">
+            <div className="flex gap-8 text-[13px] font-medium text-[var(--color-body)]">
               <a
                 href="https://linkedin.com/in/reshmamanandhar"
                 target="_blank"

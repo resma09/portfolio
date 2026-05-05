@@ -12,7 +12,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <FadeIn delay={index * 0.08}>
       {/* Top border for every row */}
-      <div className="border-t border-[#e8e8e8]" />
+      <div className="border-t border-[var(--color-border)]" />
 
       <Link
         href={`/work/${project.slug}/`}
@@ -21,9 +21,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <div className="grid grid-cols-[220px_1fr_auto] items-center gap-10 py-10">
 
           {/* Thumbnail */}
-          <div className="w-[220px] h-[148px] bg-[#f2f2f2] overflow-hidden relative flex-shrink-0">
+          <div className="w-[220px] h-[148px] bg-[var(--color-surface-secondary)] overflow-hidden relative flex-shrink-0">
             <Image
-              src={project.coverImage}
+              src={project.featuredThumbnail}
               alt={project.title}
               fill
               sizes="220px"
@@ -33,13 +33,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Industry + title + tagline */}
           <div>
-            <span className="block font-mono text-[10px] font-medium tracking-[0.08em] text-[var(--color-muted)] uppercase mb-3">
+            <span className="block font-mono text-[14px] leading-5 font-normal uppercase tracking-normal text-[var(--color-muted)] mb-3">
               {project.industry}
             </span>
             <h3 className="text-[20px] font-semibold leading-[1.25] tracking-tight text-[var(--color-text)] mb-3">
               {project.title}
             </h3>
-            <p className="text-[var(--color-muted)] text-[14px] leading-[1.65] max-w-[400px]">
+            <p className="text-[var(--color-body)] text-[14px] leading-[1.65] max-w-[400px]">
               {project.tagline}
             </p>
           </div>
@@ -47,10 +47,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {/* Role + arrow */}
           <div className="flex items-center gap-6 pl-4">
             <div>
-              <span className="block font-mono text-[10px] font-medium tracking-[0.08em] text-[var(--color-muted)] uppercase mb-2">
+              <span className="block font-mono text-[14px] leading-5 font-normal uppercase tracking-normal text-[var(--color-muted)] mb-2">
                 ROLE
               </span>
-              <p className="text-[var(--color-text)] font-semibold text-[14px] leading-[1.3] whitespace-nowrap">
+              <p className="text-[var(--color-muted)] font-semibold text-[14px] leading-[1.3] whitespace-nowrap">
                 {project.role}
               </p>
             </div>

@@ -1,63 +1,73 @@
 "use client";
-
 import { useEffect, useState } from "react";
 
-const sections = [
-  { id: "research", label: "UX Research" },
-  { id: "ux-design", label: "UX Design" },
-  { id: "ui-design", label: "UI Design" },
-  { id: "outcomes", label: "Key Outcomes" },
+const NAV_ITEMS = [
+  { label: "RESEARCH", href: "#research" },
+  { label: "UX DESIGN", href: "#ux-design" },
+  { label: "UI DESIGN", href: "#ui-design" },
+  { label: "KEY OUTCOMES", href: "#outcomes" },
 ];
 
 export function ProcessNav() {
-  const [active, setActive] = useState("research");
+  const [activeSection, setActiveSection] = useState("research");
 
   useEffect(() => {
+    const ids = ["research", "ux-design", "ui-design", "outcomes"];
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActiveSection(e.target.id);
         });
       },
-      { rootMargin: "-40% 0px -50% 0px" }
+      { rootMargin: "-30% 0px -60% 0px" }
     );
-
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
+    sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
   }, []);
 
-  const scrollTo = (id: string) => {
+  const scrollTo = (href: string) => {
+    const id = href.replace("#", "");
     const el = document.getElementById(id);
-    if (el) {
-      const yOffset = -140; // Nav height + ProcessNav height
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 148;
+    window.scrollTo({ top: y, behavior: "smooth" });
   };
 
   return (
-    <nav className="sticky top-20 md:top-24 z-40 border-b border-[#e8e8e8] bg-white/95 backdrop-blur-sm">
-      <div className="content-width flex gap-10 overflow-x-auto py-5">
-        {sections.map(({ id, label }) => (
-          <button
-            key={id}
-            onClick={() => scrollTo(id)}
-            className={`text-[10px] md:text-[11px] font-bold tracking-[0.1em] uppercase transition-colors whitespace-nowrap ${
-              active === id
-                ? "text-[var(--color-text)]"
-                : "text-[var(--color-muted)] hover:text-[var(--color-text)]"
-            }`}
-          >
-            {label}
-          </button>
-        ))}
+    <div
+      className="sticky top-20 md:top-24 z-40 bg-white border-b border-[var(--color-border)]"
+    >
+      <div className="content-width">
+        <div className="flex overflow-x-auto">
+          {NAV_ITEMS.map(({ label, href }) => {
+            const id = href.replace("#", "");
+            const active = activeSection === id;
+            return (
+              <button
+                key={label}
+                onClick={() => scrollTo(href)}
+                className="flex-shrink-0 font-mono text-[11px] uppercase tracking-[0.06em] py-5 pb-4 pr-8 bg-transparent border-none cursor-pointer transition-colors duration-150 text-left"
+                style={{
+                  color: active ? "#161616" : "var(--color-muted)",
+                }}
+              >
+                <span className="relative inline-block">
+                  {label}
+                  {active && (
+                    <span 
+                      className="absolute -bottom-4 left-0 right-0 h-[2px] bg-[#161616]" 
+                    />
+                  )}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
-    </nav>
+    </div>
   );
 }
