@@ -318,7 +318,7 @@ body {
    ============================================================ */
 
 .data-table-wrap {
-  overflow-x: auto;
+  overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -331,7 +331,7 @@ body {
 
 @media (max-width: 768px) {
   .data-table {
-    width: 200%
+    min-width: 600px;
   }
 }
 
