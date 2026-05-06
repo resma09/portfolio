@@ -9,11 +9,8 @@ export function CaseStudyHeader({ project }: Props) {
   return (
     <header>
       {/* ── Title block — padded below fixed nav (h-24 = 96px) ── */}
-      <div
-        className="content-width"
-        style={{ paddingTop: "136px", paddingBottom: "32px" }}
-      >
-        <span className="block font-mono text-[11px] leading-4 uppercase tracking-[0.06em] text-[var(--color-muted)] mb-4">
+      <div className="content-width cs-header-inner">
+        <span className="block font-mono text-[11px] leading-4 uppercase tracking-[0.06em] text-muted mb-4">
           {project.industry}
         </span>
 
@@ -26,10 +23,7 @@ export function CaseStudyHeader({ project }: Props) {
         </p>
 
         {/* Cover image — inside content-width */}
-        <div
-          className="w-full relative overflow-hidden bg-[#F7F7F7]"
-          style={{ height: "min(55vw, 560px)" }}
-        >
+        <div className="cs-cover-wrap">
           <Image
             src={project.coverImage}
             alt={project.title}
@@ -49,12 +43,12 @@ export function CaseStudyHeader({ project }: Props) {
           ].map(({ label, value }) => (
             <div
               key={label}
-              className="py-8 pr-12 md:pr-24 last:pr-0"
+              className="py-5 md:py-8 pr-8 md:pr-24 last:pr-0"
             >
-              <span className="block font-mono text-[11px] leading-4 uppercase tracking-[0.06em] text-[var(--color-muted)] mb-2">
+              <span className="block font-mono text-[11px] leading-4 uppercase tracking-[0.06em] text-muted mb-2">
                 {label}
               </span>
-              <p className="text-[16px] font-semibold text-[#161616] leading-snug">
+              <p className="text-[16px] font-semibold text-header leading-snug">
                 {value}
               </p>
             </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 
 const navLinks = [
@@ -11,7 +10,6 @@ const navLinks = [
 ];
 
 export function Nav() {
-  const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
 
   return (

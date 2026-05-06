@@ -5,7 +5,7 @@ const NAV_ITEMS = [
   { label: "RESEARCH", href: "#research" },
   { label: "UX DESIGN", href: "#ux-design" },
   { label: "UI DESIGN", href: "#ui-design" },
-  { label: "KEY OUTCOMES", href: "#outcomes" },
+  { label: "OUTCOMES", href: "#outcomes" },
 ];
 
 export function ProcessNav() {
@@ -50,7 +50,7 @@ export function ProcessNav() {
               <button
                 key={label}
                 onClick={() => scrollTo(href)}
-                className="flex-shrink-0 font-mono text-[11px] uppercase tracking-[0.06em] py-5 pb-4 pr-8 bg-transparent border-none cursor-pointer transition-colors duration-150 text-left"
+                className="flex-shrink-0 font-mono text-[10px] md:text-[11px] uppercase tracking-[0.06em] py-4 md:py-5 pr-5 md:pr-8 bg-transparent border-none cursor-pointer transition-colors duration-150 text-left"
                 style={{
                   color: active ? "#161616" : "var(--color-muted)",
                 }}

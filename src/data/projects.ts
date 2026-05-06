@@ -9,8 +9,6 @@ export type Project = {
   role: string;
   timeline: string;
   tools: string;
-  deliverable: string;
-  topOutcome: string;
 };
 
 export const projects: Project[] = [
@@ -19,60 +17,52 @@ export const projects: Project[] = [
     title: "mySecondTeacher",
     industry: "ED-TECH",
     tagline:
-      "Scaling Global Ed-Tech with Localized Design. An interactive video player with embedded quiz checkpoints and diagnostic tools.",
+      "Scaling global ed-tech with localized design — an interactive video player with embedded quiz checkpoints and diagnostic tools.",
     featuredThumbnail: "/images/mst-featured-thumb.png",
-    coverImage: "/images/mst.png",
+    coverImage: "/images/MST.png",
     featured: true,
     role: "Product Owner, Design Team Lead",
-    timeline: "2019 – 2023",
+    timeline: "2019 — 2023",
     tools: "Figma, Sketch",
-    deliverable: "Ed-Tech",
-    topOutcome: "500+ schools adopted across Nepal and SE Asia.",
   },
   {
     slug: "meromomma",
-    title: "Meromomma",
-    industry: "CONSUMER",
+    title: "MeroMomma",
+    industry: "MATERNAL HEALTH / E-COMMERCE",
     tagline:
-      "Building a pregnancy and parenting platform that brings health tools, shopping, community, and expert access together for Nepali parents.",
+      "A mobile app and e-commerce platform offering health tools, curated products, and community support for expecting and new parents in Nepal.",
     featuredThumbnail: "/images/meromomma-featured-thumb.png",
     coverImage: "/images/meromomma.png",
     featured: true,
-    role: "Project Manager",
-    timeline: "2021 – 2022",
-    tools: "Figma",
-    deliverable: "Consumer App",
-    topOutcome: "10k+ active users within 3 months of launch.",
+    role: "Product Owner, Project Manager",
+    timeline: "2021 — 2023",
+    tools: "Figma, Jira, Google Docs",
   },
   {
     slug: "medilink",
     title: "Medilink Network",
     industry: "HEALTHCARE",
     tagline:
-      "Unifying six fragmented healthcare portals into one consistent, trustworthy ecosystem for patients, doctors, and providers.",
+      "A digital ecosystem designed to automate and streamline the healthcare industry in the Philippines across six interconnected portals.",
     featuredThumbnail: "/images/medilink-featured-thumb.png",
     coverImage: "/images/medilink.png",
     featured: true,
     role: "Design Team Lead",
-    timeline: "2020 – 2021",
-    tools: "Figma, Miro",
-    deliverable: "Web Platform",
-    topOutcome: "Unified 6 portals into a single trusted ecosystem.",
+    timeline: "2017 — 2019",
+    tools: "Sketch, InVision, InDesign, HTML/CSS",
   },
   {
     slug: "inova",
     title: "Inova DD",
-    industry: "BIO PHARMA",
+    industry: "BIOPHARMA",
     tagline:
-      "Redesigning a legacy biopharma compliance platform — replacing document-heavy workflows with a structured, intuitive system.",
+      "Redesigned a legacy due diligence platform for scientists and legal teams, then led full-scale frontend and backend development.",
     featuredThumbnail: "/images/inova-featured-thumb.png",
     coverImage: "/images/inova.png",
     featured: true,
-    role: "Project Manager",
-    timeline: "2022 – 2023",
-    tools: "Figma",
-    deliverable: "Enterprise SaaS",
-    topOutcome: "Reduced compliance workflow time by 40%.",
+    role: "Design Team Lead, Project Manager",
+    timeline: "2022 — 2024",
+    tools: "Figma, Bootstrap, HTML/CSS, Jira, Teams",
   },
 ];
 
@@ -86,4 +76,15 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 export function getAllSlugs(): string[] {
   return projects.map((p) => p.slug);
+}
+
+/**
+ * Order used for "Next project" navigation on case study pages.
+ * MST → MeroMomma → Medilink → Inova → MST
+ */
+export function getNextProject(currentSlug: string): Project {
+  const order = ["mst", "meromomma", "medilink", "inova"];
+  const idx = order.indexOf(currentSlug);
+  const nextSlug = order[(idx + 1) % order.length];
+  return getProjectBySlug(nextSlug)!;
 }

@@ -1,39 +1,42 @@
 export function Footer() {
   return (
-    <footer
-      id="contact"
-      className="border-t border-[var(--color-border)] py-16"
-    >
+    <footer id="contact" className="divider py-8">
       <div className="content-width">
-        <p className="font-[family-name:var(--font-heading)] text-2xl mb-4">
-          Let&apos;s work together
-        </p>
-        <div className="flex flex-wrap gap-6 text-sm">
-          <a
-            href="mailto:reshma.manandhar.np@gmail.com"
-            className="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors no-underline"
-          >
-            Email
-          </a>
-          <a
-            href="https://linkedin.com/in/reshmamanandhar"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors no-underline"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="/reshma-resume.pdf"
-            target="_blank"
-            className="text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors no-underline"
-          >
-            Resume
-          </a>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+          <div>
+            <span className="eyebrow mb-3 text-header">GET IN TOUCH</span>
+            <a
+              href="mailto:reshma.manandhar.np@gmail.com"
+              className="link-underline body-sm"
+            >
+              reshma.manandhar.np@gmail.com
+            </a>
+          </div>
+
+          <div className="flex gap-8">
+            <a
+              href="https://linkedin.com/in/reshmamanandhar"
+              target="_blank"
+              rel="noreferrer"
+              className="body-sm font-medium no-underline transition-opacity duration-200 hover:opacity-50 text-body"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="body-sm font-medium no-underline transition-opacity duration-200 hover:opacity-50 text-body"
+            >
+              Resume
+            </a>
+          </div>
         </div>
-        <p className="text-xs text-[var(--color-muted)] mt-12">
-          &copy; {new Date().getFullYear()} Reshma Manandhar
-        </p>
+        <div className="pt-8">
+          <p className="body-sm text-muted">
+            © {new Date().getFullYear()} Reshma Manandhar. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

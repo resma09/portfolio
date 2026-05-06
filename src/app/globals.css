@@ -1,30 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --color-text: #161616;
-  /* Neutral/900 — headings */
-  --color-body: #2D2D2D;
-  /* Neutral/800 — body text */
-  --color-muted: #5A5A5A;
-  /* Neutral/600 — captions, labels */
-  --color-placeholder: #8D8D8D;
-  /* Neutral/400 — placeholder */
-  --color-border: #C6C6C6;
-  /* Neutral/300 — border default */
-  --color-border-dark: #434343;
-  /* Neutral/700 — dark border */
-  --color-surface: #FFFFFF;
-  /* Neutral/white — background */
-  --color-surface-secondary: #F7F7F7;
-  /* Neutral/100 — card bg */
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
 
+:root {
+  /* Color */
+  --color-header: #161616;
+  --color-body: #2D2D2D;
+  --color-muted: #5A5A5A;
+  --color-placeholder: #8D8D8D;
+  --color-border: #C6C6C6;
+  --color-border-soft: #E8E8E8;
+  --color-border-dark: #434343;
+  --color-surface: #FFFFFF;
+  --color-surface-secondary: #F7F7F7;
+  --color-surface-dark: #161616;
+  --color-surface-mid: #5A5A5A;
+
+  /* Layout */
   --content-width: 1280px;
+  --content-padding-x: 2rem;
+
+  /* Type scale */
+  --fs-eyebrow: 14px;
+  --fs-caption: 13px;
+  --fs-body-sm: 14px;
+  --fs-body: 16px;
+  --fs-h4: 20px;
+  --fs-h3: 24px;
+  --fs-h2: 36px;
+  --fs-h2-lg: 48px;
+  --fs-h1: 48px;
+  --fs-h1-lg: 72px;
+  --fs-stat: 36px;
+  --fs-stat-lg: 56px;
+
+  /* Line heights */
+  --lh-tight: 1.05;
+  --lh-snug: 1.25;
+  --lh-base: 1.65;
+  --lh-relaxed: 1.75;
+
+  /* Letter spacing */
+  --ls-tight: -0.02em;
+  --ls-snug: -0.01em;
+  --ls-mono: 0.04em;
+
+  /* Section rhythm */
+  --section-py: 4rem;
+  --section-py-lg: 6rem;
+  --stack-lg: 4rem;
+  --stack-md: 2.5rem;
+  --stack-sm: 1.5rem;
 }
 
 @theme {
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-mono: var(--font-mono), monospace;
 }
+
+/* ============================================================
+   BASE
+   ============================================================ */
 
 html {
   scroll-behavior: smooth;
@@ -34,41 +72,1094 @@ body {
   background-color: var(--color-surface);
   color: var(--color-body);
   font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  -webkit-font-smoothing: antialiased;
   background-image: url("data:image/svg+xml,%3Csvg width='160' height='1' viewBox='0 0 160 1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' fill='%23F5F5F5'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-position: center top;
 }
 
+
+.cs-cover-wrap {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface-secondary);
+  height: min(55vw, 560px);
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
 .content-width {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--content-padding-x);
 }
 
+.divider {
+  border-top: 1px solid var(--color-border);
+}
+
+.divider-soft {
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.section {
+  scroll-margin-top: 148px;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+@media (min-width: 768px) {
+  .section-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+    padding-top: var(--section-py-lg);
+    padding-bottom: var(--section-py-lg);
+  }
+}
+
+.section-body>*+* {
+  margin-top: var(--stack-lg);
+}
+
+.cs-header-inner {
+  padding-top: 104px;
+  padding-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .cs-header-inner {
+    padding-top: 136px;
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.h1-display {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-header);
+}
+
+@media (min-width: 768px) {
+  .h1-display {
+    font-size: var(--fs-h1-lg);
+  }
+}
+
+.h1-cover {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-header);
+}
+
+@media (min-width: 768px) {
+  .h1-cover {
+    font-size: 64px;
+  }
+}
+
+.h2-section {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: var(--ls-snug);
+  color: var(--color-header);
+}
+
+@media (min-width: 768px) {
+  .h2-section {
+    font-size: var(--fs-h2-lg);
+  }
+}
+
+.h3-sub {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: var(--ls-snug);
+  color: var(--color-header);
+}
+
+.h4-card {
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: var(--ls-snug);
+  color: var(--color-header);
+}
+
+.body-base {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--color-body);
+}
+
+.body-sm {
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-base);
+  color: var(--color-body);
+}
+
+.caption {
+  font-size: var(--fs-caption);
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.lead {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--color-body);
+  max-width: 640px;
+}
+
+/* ============================================================
+   COMPONENTS
+   ============================================================ */
 
 .btn-primary {
   display: inline-block;
-  background: var(--color-text);
+  background: var(--color-header);
   color: #fff;
-  padding: 12px 24px;
+  padding: 14px 28px;
   border-radius: 2px;
-  font-size: 14px;
+  font-size: var(--fs-body-sm);
   font-weight: 500;
+  letter-spacing: 0.01em;
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s ease;
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: var(--color-muted);
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
+/* Stat block — used in Outcomes section */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--color-border-soft);
+}
+
+@media (min-width: 768px) {
+  .stat-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat-block {
+  padding: 2rem;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.stat-block:first-child {
+  border-top: 0;
+}
+
+@media (min-width: 768px) {
+  .stat-block {
+    padding: 2.5rem;
+    border-top: 0;
+    border-left: 1px solid var(--color-border-soft);
+  }
+
+  .stat-block:first-child {
+    border-left: 0;
+  }
+}
+
+.stat-value {
+  font-size: var(--fs-stat);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--color-header);
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .stat-value {
+    font-size: var(--fs-stat-lg);
+  }
+}
+
+/* ============================================================
+   DATA TABLE — used in Section blocks (value props, roadmap, comparison)
+   Header row: #F7F7F7 fill. Body rows: white. Vertical column dividers
+   visible throughout. Two-line headers supported via data-th--stacked.
+   ============================================================ */
+
+.data-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border: 2px solid #FFF;
+}
+
+@media (max-width: 768px) {
+  .data-table {
+    width: 200%
+  }
+}
+
+.data-th {
+  text-align: left;
+  padding: 1rem;
+  background: var(--color-surface-secondary);
+  vertical-align: top;
+  border: 2px solid #FFF;
+}
+
+/* Two-line header — small subtitle above the eyebrow label */
+.data-th--stacked .data-th-subtitle {
   display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: var(--ls-mono);
+  color: var(--color-muted);
+  margin-bottom: 0.375rem;
+  text-transform: none;
+}
+
+.data-table tbody tr {
+  border: 2px solid #FFF;
+}
+
+.data-td {
+  padding: 1rem;
+  font-size: var(--fs-body-sm);
+  line-height: 1.55;
+  vertical-align: top;
+  color: var(--color-body);
+  background: var(--color-surface);
+  border: 2px solid #FFF;
+}
+
+.data-td--first {
+  font-weight: 500;
+  color: var(--color-header);
+  background: var(--color-surface-secondary);
+}
+
+/* ============================================================
+   EMPATHY MAP — 2x2 with internal dividers only, no outer border.
+   Top-row labels (eyebrow). Quotes in italic. Generous padding.
+   ============================================================ */
+
+.empathy-persona {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--color-header);
+  margin-bottom: 1rem;
+}
+
+.empathy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.empathy-cell {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+@media (min-width: 768px) {
+  .empathy-cell {
+    padding: 1.5rem 1.75rem;
+  }
+}
+
+/* Vertical divider on left-side cells */
+.empathy-cell:nth-child(odd) {
+  border-right: 1px solid var(--color-border-soft);
+}
+
+/* Bottom-row cells — no bottom border */
+.empathy-cell:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.empathy-cell .eyebrow {
+  margin-bottom: 0.875rem;
+}
+
+.empathy-quote {
+  font-size: var(--fs-body-sm);
+  line-height: 1.5;
+  color: var(--color-body);
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .empathy-quote {
+    font-size: var(--fs-body);
+    line-height: 1.55;
+  }
+}
+
+.panel {
+  background: var(--color-surface-secondary);
+  padding: 1.5rem;
+}
+
+.callout {
+  border-left: 2px solid var(--color-header);
+  padding: 0.5rem 0 0.5rem 2rem;
+}
+
+/* ============================================================
+   IA DIAGRAM — root pill + columns of portals + items.
+   Rounded corners (4px), regular weight header text, lighter rules.
+   ============================================================ */
+
+.ia-diagram {
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ia-root-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.ia-root-pill {
+  position: relative;
+  z-index: 10;
+  padding: 0.875rem 2.5rem;
+  background: var(--color-surface-dark);
+  color: #fff;
+  font-size: var(--fs-body);
+  font-weight: 500;
+  letter-spacing: var(--ls-snug);
+  border-radius: 4px;
+}
+
+.ia-root-drop {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 1px;
+  height: 4rem;
+  background: var(--color-border-soft);
+  transform: translateX(-0.5px);
+}
+
+/* Horizontal connector row */
+.ia-connector-row {
+  position: relative;
+  gap: 0 !important;
+}
+
+.ia-connector-cell {
+  position: relative;
+  height: 3rem;
+}
+
+.ia-connector-half {
+  position: absolute;
+  top: 0;
+  height: 1px;
+  background: var(--color-border-soft);
+}
+
+.ia-connector-half--left {
+  left: 0;
+  right: 50%;
+}
+
+.ia-connector-half--right {
+  left: 50%;
+  right: 0;
+}
+
+.ia-connector-drop {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 3rem;
+  background: var(--color-border-soft);
+  transform: translateX(-0.5px);
+}
+
+/* Portal columns */
+.ia-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ia-portal-header {
+  width: 100%;
+  text-align: center;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1.5rem;
+  background: var(--color-surface-mid);
+  color: #fff;
+  font-size: var(--fs-body-sm);
+  font-weight: 400;
+  border-radius: 4px;
+}
+
+.ia-portal-items {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ia-portal-item {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem;
+  background: var(--color-surface-secondary);
+  color: var(--color-body);
+  font-size: var(--fs-caption);
+  line-height: 1.4;
+}
+
+.ia-portal-item-drop {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 1px;
+  height: 1.5rem;
+  background: var(--color-border-soft);
+  transform: translateX(-0.5px);
+}
+
+.ia-portal-item:first-child .ia-portal-item-drop {
+  display: none;
+}
+
+.link-underline {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--color-body);
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--color-header);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.link-underline:hover::after {
+  transform: scaleX(0);
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+
+.divider-soft {
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.divider {
+  border-top: 1px solid var(--color-border);
+}
+
+/* ============================================================
+   DESIGN SYSTEM PANEL — sub-block in case study UI Design section
+   ============================================================ */
+
+.ds-panel {
+  margin-top: 2.5rem;
+  padding-top: 4rem;
+}
+
+.ds-panel-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.ds-panel-title-group {
+  flex: 1;
+  min-width: 240px;
+}
+
+.ds-panel-title {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: var(--ls-snug);
+  color: var(--color-header);
+  margin-top: 0.75rem;
+}
+
+.ds-panel-meta {
+  font-size: var(--fs-body-sm);
+  color: var(--color-muted);
+  line-height: 1.6;
+  max-width: 32ch;
+}
+
+/* Two-row grid: color + type on top, components full width below */
+.ds-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .ds-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "color type"
+      "components components";
+  }
+
+  .ds-card--color {
+    grid-area: color;
+  }
+
+  .ds-card--type {
+    grid-area: type;
+  }
+
+  .ds-card--components {
+    grid-area: components;
+  }
+}
+
+.ds-card {
+  border: 1px solid var(--color-border-soft);
+  padding: 2rem;
+  background: var(--color-surface);
+}
+
+.ds-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.ds-card-title {
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  letter-spacing: var(--ls-snug);
+  color: var(--color-header);
+}
+
+.ds-card-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+/* Swatches — grid of color tiles */
+.ds-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+}
+
+.ds-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ds-swatch-chip {
+  aspect-ratio: 1;
+  width: 100%;
+  border: 1px solid var(--color-border-soft);
+  background: var(--swatch, var(--color-surface-secondary));
+}
+
+.ds-swatch-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  line-height: 1.3;
+}
+
+.ds-swatch-hex {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-header);
+  line-height: 1.3;
+}
+
+/* Type ramp */
+.ds-type-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-type-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.ds-type-row:last-child {
+  border-bottom: none;
+}
+
+.ds-type-sample {
+  color: var(--color-header);
+}
+
+.ds-type-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+/* Type sample variants — referenced by data, not by CSS class names */
+.ds-type-sample--display {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+}
+
+.ds-type-sample--h2 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: var(--ls-snug);
+}
+
+.ds-type-sample--h3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.ds-type-sample--body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.ds-type-sample--mono {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Components grid */
+.ds-components-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--color-border-soft);
+  border: 1px solid var(--color-border-soft);
+}
+
+@media (min-width: 600px) {
+  .ds-components-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .ds-components-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ds-component-cell {
+  background: var(--color-surface);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 180px;
+}
+
+/* ============================================================
+   CAROUSEL — horizontal scrolling for key screens
+   ============================================================ */
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  /* Firefox */
+  padding-bottom: 1rem;
+}
+
+.carousel-scroll::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
+}
+
+.carousel-item {
+  flex: 0 0 95%;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .carousel-item {
+    flex: 0 0 calc(75% - 1rem);
+  }
+}
+
+.ds-component-canvas {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.ds-component-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+/* ============================================================
+   MST DESIGN SYSTEM — project-specific component examples
+   These live in CSS so the JSX in the case study stays declarative.
+   Each case study with a system panel gets its own .ds-mst-* / .ds-medilink-* etc. block.
+   ============================================================ */
+
+.ds-mst-ivy-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-surface-dark);
+  color: var(--color-surface);
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+}
+
+.ds-mst-ivy-play {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-header);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.ds-mst-ivy-progress {
+  width: 100px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ds-mst-ivy-progress::before {
+  content: "";
+  position: absolute;
+  inset: 0 60% 0 0;
+  background: var(--color-surface);
+}
+
+.ds-mst-ivy-progress::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-header);
+  transform: translate(-50%, -50%);
+}
+
+.ds-mst-ivy-time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-surface);
+  opacity: 0.7;
+}
+
+.ds-mst-quiz {
+  border: 1px solid var(--color-border);
+  padding: 1rem 1.25rem;
+  width: 100%;
+  max-width: 220px;
+  background: var(--color-surface);
+}
+
+.ds-mst-quiz-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-header);
+  margin-bottom: 0.5rem;
+  padding: 2px 6px;
+  border: 1px solid var(--color-header);
+}
+
+.ds-mst-quiz-q {
+  font-size: 12px;
+  color: var(--color-header);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.ds-mst-quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.ds-mst-quiz-option {
+  font-size: 11px;
+  padding: 0.375rem 0.5rem;
+  border: 1px solid var(--color-border-soft);
+  color: var(--color-body);
+}
+
+.ds-mst-quiz-option.is-selected {
+  border-color: var(--color-header);
+  background: var(--color-header);
+  color: var(--color-surface);
+}
+
+.ds-mst-progress {
+  width: 100%;
+  max-width: 220px;
+  border: 1px solid var(--color-border);
+  padding: 1rem;
+  background: var(--color-surface);
+}
+
+.ds-mst-progress-label {
+  font-size: 11px;
+  color: var(--color-muted);
+  margin-bottom: 0.375rem;
+}
+
+.ds-mst-progress-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: var(--ls-tight);
+  color: var(--color-header);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.ds-mst-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--color-border-soft);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.ds-mst-progress-fill {
+  height: 100%;
+  width: 72%;
+  background: var(--color-header);
+}
+
+.ds-mst-progress-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-muted);
+}
+
+.ds-mst-student {
+  width: 100%;
+  max-width: 220px;
+  border: 1px solid var(--color-border);
+  padding: 0.875rem;
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ds-mst-student-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-surface-secondary);
+  color: var(--color-header);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.ds-mst-student-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ds-mst-student-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-header);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ds-mst-student-status {
+  font-size: 10px;
+  color: var(--color-muted);
+}
+
+.ds-mst-student-status::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-header);
+  margin-right: 4px;
+  vertical-align: 1px;
+}
+
+.ds-mst-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.ds-mst-badge {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--color-surface-secondary);
+  color: var(--color-header);
+}
+
+.ds-mst-badge.is-active {
+  background: var(--color-header);
+  color: var(--color-surface);
+}
+
+.ds-mst-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+  width: 100%;
+  max-width: 220px;
+}
+
+.ds-mst-tab {
+  padding: 0.5rem 0.75rem;
+  font-size: 11px;
+  color: var(--color-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.ds-mst-tab.is-active {
+  color: var(--color-header);
+  border-bottom-color: var(--color-header);
+  font-weight: 600;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.text-body {
+  color: var(--color-body);
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+.text-header {
+  color: var(--color-header);
+}
+
+.text-white {
+  color: #FFF;
+}
+
+.group:hover .group-hover-white,
+.group:hover .group-hover-white path {
+  color: #FFF !important;
+  stroke: #FFF !important;
 }
