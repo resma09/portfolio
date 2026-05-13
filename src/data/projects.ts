@@ -43,7 +43,7 @@ export const projects: Project[] = [
     title: "Medilink Network",
     industry: "HEALTHCARE",
     tagline:
-      "A digital ecosystem designed to automate and streamline the healthcare industry in the Philippines across six interconnected portals.",
+      "A healthcare platform designed to centralize provider management, appointment workflows, patient coordination, and operational systems within a connected digital ecosystem.",
     featuredThumbnail: "/images/medilink-featured-thumb.png",
     coverImage: "/images/medilink.png",
     featured: true,

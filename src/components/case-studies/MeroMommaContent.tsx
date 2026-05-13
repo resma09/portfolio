@@ -218,35 +218,35 @@ export function MeroMommaContent() {
               label: "Card- Store Item",
               className: "w-full md:w-[30%]",
               render: (
-                <Image src="/images/meromomma/ds/Card-%20Store%20Item.png" alt="Card- Store Item" width={220} height={300} className="w-full h-auto max-w-[220px] object-contain drop-shadow-sm" />
+                <Image src="/images/meromomma/ds/Card-%20Store%20Item.png" alt="Card- Store Item" width={220} height={300} style={{ width: "100%", height: "auto" }} className="max-w-[220px] object-contain drop-shadow-sm" />
               )
             },
             {
               label: "Wish Icon - Interaction",
               className: "w-full md:w-[30%]",
               render: (
-                <Image src="/images/meromomma/ds/wish%20Icon.png" alt="Wish Icon - Interaction" width={160} height={80} className="w-full h-auto max-w-[160px] object-contain drop-shadow-sm" />
+                <Image src="/images/meromomma/ds/wish%20Icon.png" alt="Wish Icon - Interaction" width={160} height={80} style={{ width: "100%", height: "auto" }} className="max-w-[160px] object-contain drop-shadow-sm" />
               )
             },
             {
               label: "Buttons",
               className: "w-full md:w-[30%]",
               render: (
-                <Image src="/images/meromomma/ds/Buttons.png" alt="Buttons" width={220} height={220} className="w-full h-auto max-w-[220px] object-contain drop-shadow-sm" />
+                <Image src="/images/meromomma/ds/Buttons.png" alt="Buttons" width={220} height={220} style={{ width: "100%", height: "auto" }} className="max-w-[220px] object-contain drop-shadow-sm" />
               )
             },
             {
               label: "Mobile Nav Bar",
               className: "w-full md:w-[48%]",
               render: (
-                <Image src="/images/meromomma/ds/bottom-nav.png" alt="Mobile Nav Bar" width={480} height={180} className="w-full h-auto max-w-[480px] object-contain drop-shadow-sm" />
+                <Image src="/images/meromomma/ds/bottom-nav.png" alt="Mobile Nav Bar" width={480} height={180} style={{ width: "100%", height: "auto" }} className="max-w-[480px] object-contain drop-shadow-sm" />
               )
             },
             {
               label: "Tab Bar/Action",
               className: "w-full md:w-[48%]",
               render: (
-                <Image src="/images/meromomma/ds/Action.png" alt="Tab Bar/Action" width={480} height={180} className="w-full h-auto max-w-[480px] object-contain drop-shadow-sm" />
+                <Image src="/images/meromomma/ds/Action.png" alt="Tab Bar/Action" width={480} height={180} style={{ width: "100%", height: "auto" }} className="max-w-[480px] object-contain drop-shadow-sm" />
               )
             }
           ]}
