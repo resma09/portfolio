@@ -300,8 +300,8 @@ export function DesignSystem({
             <span className="ds-card-num">02</span>
           </div>
           <div className="ds-type-rows">
-            {type.map(({ sample, meta: rowMeta, sampleClass }) => (
-              <div key={rowMeta} className="ds-type-row">
+            {type.map(({ sample, meta: rowMeta, sampleClass }, i) => (
+              <div key={i} className="ds-type-row">
                 <span className={`ds-type-sample ${sampleClass}`}>{sample}</span>
                 <span className="ds-type-meta">{rowMeta}</span>
               </div>

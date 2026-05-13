@@ -92,11 +92,13 @@ export function MSTContent() {
       </Section>
 
       <Section id="ux-design" number="02" title="UX Design">
-        <p className="body-base lead -mt-8">
-          The research pointed to a clear direction. Students needed orientation within
-          lessons. Teachers needed control over content. Administrators needed visibility
-          at scale. The value proposition came directly from those gaps.
-        </p>
+        <Block eyebrow="Research Insights">
+          <p className="body-base mt-6">
+            The research pointed to a clear direction. Students needed orientation within
+            lessons. Teachers needed control over content. Administrators needed visibility
+            at scale. The value proposition came directly from those gaps.
+          </p>
+        </Block>
 
         <Block eyebrow="VALUE PROPOSITION MAP">
           <Table
@@ -166,39 +168,54 @@ export function MSTContent() {
           intro="Diagnostic Learning Ecosystem"
           meta="A connected suite for students and teachers, emphasizing real-time feedback and curriculum alignment."
           swatches={[
-            { name: "Brand Dark", hex: "#161616" },
-            { name: "Surface", hex: "#FFFFFF" },
-            { name: "Muted", hex: "#707070" },
-            { name: "Border", hex: "#E5E5E5" }
+            { name: "Primary", hex: "#985DEC" },
+            { name: "Secondary", hex: "#39C9A7" },
+            { name: "Red", hex: "#F15366" },
+            { name: "Highlight", hex: "#FAF7FE" },
+            { name: "Surface Light", hex: "#F9FAFA" },
+            { name: "Text-Light", hex: "#A7A7A7" },
+            { name: "Body Text", hex: "#383838" },
+            { name: "Border Color", hex: "#EBEBEB" }
           ]}
           type={[
-            { sample: "Diagnostic Learning", meta: "Display / Bold / 32px", sampleClass: "ds-type-sample--display" },
-            { sample: "Curriculum Content", meta: "Heading / Bold / 22px", sampleClass: "ds-type-sample--h2" },
-            { sample: "Real-time Feedback", meta: "Body / Medium / 16px", sampleClass: "ds-type-sample--h3" },
-            { sample: "The platform introduced diagnostic learning — a structured approach.", meta: "Body / Regular / 14px", sampleClass: "ds-type-sample--body" },
-            { sample: "PHASE 1 — MVP", meta: "Mono / Medium / 11px", sampleClass: "ds-type-sample--mono" }
+            { sample: "Diagnostic Learning", meta: "WebApp - Title / Work Sans / 36px", sampleClass: "ds-type-sample--display font-work-sans" },
+            { sample: "Diagnostic Learning", meta: "WebApp - Work Sans / Text / Regular / 16px", sampleClass: "ds-type-sample--body font-work-sans" },
+            { sample: "Diagnostic Learning", meta: "WebApp - Work Sans / Text / Regular / 16px", sampleClass: "ds-type-sample--body font-work-sans" }
           ]}
           components={[
             {
-              label: "IVY CONTROLS",
+              label: "VIDEO CARD",
               render: (
-                <div className="ds-mst-ivy-controls">
-                  <div className="ds-mst-ivy-play">▶</div>
-                  <div className="ds-mst-ivy-progress" />
-                  <span className="ds-mst-ivy-time">12:40</span>
+                <div className="ds-mst-video-card">
+                  <div className="ds-mst-video-thumb" />
+                  <p className="ds-mst-video-title">Introduction to Algebra I: Linear Equations</p>
+                  <div className="ds-mst-video-meta">
+                    <span>1.2k Views</span>
+                    <span>12 Pages</span>
+                    <span>4.8 Rating</span>
+                  </div>
                 </div>
               )
             },
             {
-              label: "IVY QUIZ",
+              label: "PRIMARY BUTTON",
               render: (
-                <div className="ds-mst-quiz">
-                  <span className="ds-mst-quiz-tag">Diagnostic</span>
-                  <p className="ds-mst-quiz-q">What is the capital of Nepal?</p>
-                  <div className="ds-mst-quiz-options">
-                    <div className="ds-mst-quiz-option">Pokhara</div>
-                    <div className="ds-mst-quiz-option is-selected">Kathmandu</div>
-                  </div>
+                <button className="ds-mst-btn-primary">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                  Go to Subject Catalogue
+                </button>
+              )
+            },
+            {
+              label: "CLASSROOM CARD",
+              render: (
+                <div className="ds-mst-classroom-card">
+                  <p className="ds-mst-classroom-time">10:00 AM — 11:00 AM</p>
+                  <p className="ds-mst-classroom-title">English 102 Classroom</p>
+                  <a href="#" className="ds-mst-classroom-join">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                    Join
+                  </a>
                 </div>
               )
             },
@@ -210,18 +227,6 @@ export function MSTContent() {
                   <p className="ds-mst-progress-value">72%</p>
                   <div className="ds-mst-progress-bar"><div className="ds-mst-progress-fill" /></div>
                   <span className="ds-mst-progress-meta">Mastery on track</span>
-                </div>
-              )
-            },
-            {
-              label: "STUDENT CARD",
-              render: (
-                <div className="ds-mst-student">
-                  <div className="ds-mst-student-avatar">JD</div>
-                  <div className="ds-mst-student-info">
-                    <p className="ds-mst-student-name">Jane Doe</p>
-                    <p className="ds-mst-student-status">Active now</p>
-                  </div>
                 </div>
               )
             },
