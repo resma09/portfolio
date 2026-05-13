@@ -56,7 +56,7 @@ export const projects: Project[] = [
     title: "Inova DD",
     industry: "BIOPHARMA",
     tagline:
-      "Redesigned a legacy due diligence platform for scientists and experts in the fields, then led full-scale frontend and backend development.",
+      "A biopharma due diligence platform designed to centralize assessments, expert reviews, and compliance workflows within a structured operational system.",
     featuredThumbnail: "/images/inova-featured-thumb.png",
     coverImage: "/images/inova.png",
     featured: true,
