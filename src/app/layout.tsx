@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 
-import { Inter, JetBrains_Mono, Work_Sans } from "next/font/google";
+import { Inter, JetBrains_Mono, Nunito } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,9 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const workSans = Work_Sans({
+const nunito = Nunito({
   subsets: ["latin"],
-  variable: "--font-work-sans",
+  variable: "--font-nunito",
   display: "swap",
 });
 
@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${workSans.variable}`} data-scroll-behavior="smooth">
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${nunito.variable}`} data-scroll-behavior="smooth">
       <body className="font-sans antialiased">
         <Nav />
         <main>{children}</main>

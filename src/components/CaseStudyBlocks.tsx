@@ -249,6 +249,7 @@ export type DesignSystemTypeRow = {
 export type DesignSystemComponent = {
   label: string;
   render: React.ReactNode;
+  className?: string;
 };
 
 export function DesignSystem({
@@ -315,8 +316,8 @@ export function DesignSystem({
             <span className="ds-card-num">03</span>
           </div>
           <div className="ds-components-grid">
-            {components.map(({ label, render }) => (
-              <div key={label} className="ds-component-cell">
+            {components.map(({ label, render, className }) => (
+              <div key={label} className={`ds-component-cell ${className || ""}`}>
                 <div className="ds-component-canvas">{render}</div>
                 <span className="ds-component-label">{label}</span>
               </div>
@@ -328,9 +329,9 @@ export function DesignSystem({
   );
 }
 
-export function Carousel({ children }: { children: React.ReactNode }) {
+export function Carousel({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className="carousel-container">
+    <div className={`carousel-container ${className}`}>
       <div className="carousel-scroll">
         {Array.isArray(children) ? (
           children.map((child, i) => (

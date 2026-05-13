@@ -5,6 +5,7 @@ import {
   Table,
   EmpathyMap,
   IADiagram,
+  DesignSystem,
   Carousel,
   StatBlock,
   Takeaways
@@ -14,7 +15,7 @@ import { ImageWithCaption } from "@/components/ImageWithCaption";
 export function MedilinkContent() {
   return (
     <>
-      <Section id="research" number="01" title="Research">
+      <Section id="research" number="01" title="UX Research">
         <Block eyebrow="THE PROBLEM">
           <p className="body-base mb-6">
             Medilink&apos;s platform was a series of disconnected applications. Members
@@ -29,7 +30,7 @@ export function MedilinkContent() {
             modernizing the entire ecosystem.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="pl-6">
+            <div>
               <span className="eyebrow mb-2">THE CORE CHALLENGE</span>
               <p className="body-base">
                 Create a unified digital product suite that was intuitive for end-users
@@ -37,7 +38,7 @@ export function MedilinkContent() {
                 coherent experience.
               </p>
             </div>
-            <div className="pl-6">
+            <div>
               <span className="eyebrow mb-2">THE PARTNERSHIP</span>
               <p className="body-base">
                 Our Nepal-based design team worked directly with Medilink&apos;s
@@ -68,21 +69,17 @@ export function MedilinkContent() {
                 { q: "SAYS", a: '"Give me one screen with everything I need for this patient."' },
               ]}
             />
-            <EmpathyMap
-              persona="Persona 3: Administrator"
-              items={[
-                { q: "THINKS", a: '"Every department runs on a different tool."' },
-                { q: "FEELS", a: "Overwhelmed reconciling data across disconnected portals" },
-                { q: "DOES", a: "Exports data to Excel, manually cross-references between systems" },
-                { q: "SAYS", a: '"I need one dashboard to manage the entire network."' },
-              ]}
-            />
           </div>
         </Block>
       </Section>
 
       <Section id="ux-design" number="02" title="UX Design">
-        <Block eyebrow="VALUE PROPOSITION MAP">
+        <Block eyebrow="VALUE PROPOSITION">
+          <p className="body-base mt-6 mb-8">
+            Established a unified digital product suite that was intuitive for end-users
+            and easy for employees to manage. Six portals, six user types, one
+            coherent experience.
+          </p>
           <Table
             headers={["CUSTOMER JOBS", "PAINS", "GAINS"]}
             rows={[
@@ -130,12 +127,65 @@ export function MedilinkContent() {
       </Section>
 
       <Section id="ui-design" number="03" title="UI Design">
+        <DesignSystem
+          intro="Unified Health Ecosystem"
+          meta="A scalable component library designed for high-density healthcare data. The system ensures consistency across six unique user portals while maintaining professional trust."
+          swatches={[
+            { name: "Medilink Blue", hex: "#00529B" },
+            { name: "Secondary Blue", hex: "#0072CE" },
+            { name: "Success", hex: "#28A745" },
+            { name: "Surface", hex: "#F8F9FA" },
+            { name: "Border", hex: "#DEE2E6" },
+            { name: "Text", hex: "#212529" }
+          ]}
+          type={[
+            { sample: "Patient Overview", meta: "Portal - Title / SemiBold / 22px", sampleClass: "ds-type-sample--h2" },
+            { sample: "Letter of Authorization (LOA)", meta: "Portal - Label / Medium / 14px", sampleClass: "ds-type-sample--body" },
+            { sample: "PENDING VERIFICATION", meta: "Portal - Status / Bold / 10px", sampleClass: "ds-type-sample--mono" }
+          ]}
+          components={[
+            {
+              label: "PORTAL SWITCHER",
+              render: (
+                <div className="flex flex-col gap-2 p-3 bg-white border border-[#DEE2E6] rounded-lg w-full max-w-[200px]">
+                  <div className="flex items-center gap-2 text-[#00529B]">
+                    <div className="w-6 h-6 bg-[#00529B] rounded flex items-center justify-center text-white text-[10px]">ML</div>
+                    <span className="text-[12px] font-bold">MemberLink</span>
+                  </div>
+                  <div className="h-[1px] bg-[#DEE2E6]" />
+                  <div className="text-[11px] text-[#888]">Switch to DoctorLink</div>
+                </div>
+              )
+            },
+            {
+              label: "STATUS BADGE",
+              render: (
+                <div className="flex gap-2">
+                  <span className="px-2 py-0.5 bg-[#E8F5E9] text-[#2E7D32] text-[10px] font-bold rounded-full border border-[#C8E6C9]">APPROVED</span>
+                  <span className="px-2 py-0.5 bg-[#FFF3E0] text-[#EF6C00] text-[10px] font-bold rounded-full border border-[#FFE0B2]">PENDING</span>
+                </div>
+              )
+            },
+            {
+              label: "DATA ROW",
+              render: (
+                <div className="w-full bg-white border border-[#DEE2E6] p-2 flex justify-between items-center text-[11px]">
+                  <div>
+                    <p className="font-bold">Claim #12849</p>
+                    <p className="text-[#888]">St. Luke&apos;s Medical Center</p>
+                  </div>
+                  <span className="font-mono text-[#00529B]">₱ 12,400.00</span>
+                </div>
+              )
+            }
+          ]}
+        />
+
         <Block eyebrow="KEY SCREENS">
-          <p className="body-base mb-8">
+          <p className="body-base mb-10">
             Established a unified visual language with a shared component library across
-            all six portals. Responsive dashboards, mobile apps for DoctorLink and
-            MemberLink, a kiosk interface for the member gateway, and frontend
-            HTML/CSS/JS for development handoff.
+            all six portals. The design prioritizes high-density data management and
+            professional reliability.
           </p>
           <Carousel>
             <ImageWithCaption src="/images/medilink/screen-1.png" alt="Member Dashboard" caption="MemberLink — unified provider lookup and LOA status." />
@@ -147,11 +197,6 @@ export function MedilinkContent() {
       </Section>
 
       <Section id="outcomes" number="04" title="Outcomes">
-        <p className="body-base lead -mt-8">
-          A multi-year partnership that grew from a single deliverable to a complete
-          digital ecosystem.
-        </p>
-
         <div className="stat-grid">
           <StatBlock
             value="20+"
