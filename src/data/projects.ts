@@ -17,7 +17,7 @@ export const projects: Project[] = [
     title: "mySecondTeacher",
     industry: "ED-TECH",
     tagline:
-      "Scaling global ed-tech with localized design — an interactive video player with embedded quiz checkpoints and diagnostic tools.",
+      "A formal education platform designed to support digital learning through diagnostic assessments, structured learning paths, and interactive educational experiences.",
     featuredThumbnail: "/images/mst-featured-thumb.png",
     coverImage: "/images/MST.png",
     featured: true,
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     title: "Inova DD",
     industry: "BIOPHARMA",
     tagline:
-      "Redesigned a legacy due diligence platform for scientists and legal teams, then led full-scale frontend and backend development.",
+      "Redesigned a legacy due diligence platform for scientists and experts in the fields, then led full-scale frontend and backend development.",
     featuredThumbnail: "/images/inova-featured-thumb.png",
     coverImage: "/images/inova.png",
     featured: true,

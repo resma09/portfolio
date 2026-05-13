@@ -12,8 +12,8 @@ export default function Home() {
   const shouldReduceMotion = useReducedMotion();
 
   const aboutParagraphs = [
-    "Over the years, I've worked across different industries and teams, helping turn ideas into digital products that work. I started in frontend, moved into UX, and now spend most of my time leading product design and guiding teams.",
-    "What I care about most is making things simpler — for the user, for the team, and for the business. That means building clear flows, asking the right questions, and staying grounded in how people actually use things.",
+    "Over the years, I’ve worked across different industries and teams to help turn ideas into digital products that actually work. I started in frontend development, moved into UX, and now spend most of my time leading product design and guiding teams.",
+    "I care most about making things simpler for the user, the team, and the business. This means building clear flows, asking the right questions, and staying grounded in how people actually use things.",
   ];
 
   return (
@@ -46,8 +46,8 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
           >
-            I&apos;ve worked across health, education, and fintech — always
-            focused on making complex products feel simple.
+            I&apos;ve worked across health, education, and fintech with a constant
+            focus on making complex products feel simple.
           </motion.p>
 
           <motion.div
@@ -98,8 +98,7 @@ export default function Home() {
                   className="italic body-sm pt-4"
                   style={{ color: "var(--color-muted)" }}
                 >
-                  &ldquo;Good design doesn&apos;t have to shout — it just has
-                  to work.&rdquo;
+                  &ldquo;Design works best when it is clear, purposeful, and does exactly what is needed.&rdquo;
                 </p>
               </FadeIn>
             </div>

@@ -59,7 +59,7 @@ export function ProcessNav() {
                   {label}
                   {active && (
                     <span 
-                      className="absolute -bottom-4 left-0 right-0 h-[2px] bg-[#161616]" 
+                      className="absolute -bottom-4 md:-bottom-5 left-0 right-0 h-[2px] bg-[#161616]" 
                     />
                   )}
                 </span>

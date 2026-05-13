@@ -18,23 +18,23 @@ export function MSTContent() {
       <Section id="research" number="01" title="UX Research">
         <Block eyebrow="THE PROBLEM">
           <p className="body-base mb-6">
-            Most digital learning platforms lean into passive content or replicate static
-            textbooks without interactivity. Neither approach solves the core problem:
-            students don&apos;t know where they stand, and teachers have no visibility
-            into who&apos;s struggling.
+            Most digital learning platforms either relied on passive content or replicated
+            textbook-style experiences without meaningful interaction. Students struggled
+            to understand their learning progress, while teachers lacked visibility into
+            classroom performance and engagement.
           </p>
+
           <p className="body-base mb-10">
-            mySecondTeacher was built to change that. The platform introduced diagnostic
-            learning — a structured, curriculum-aligned approach where real feedback is
-            embedded directly into the experience through an interactive video player
-            with quiz checkpoints at every stage.
+            mySecondTeacher was designed to support formal education through diagnostic
+            learning, structured coursework, and digital classroom experiences. The
+            challenge was creating an experience that balanced usability, engagement, and
+            educational clarity for younger learners.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <span className="eyebrow mb-2">THE MARKET GAP</span>
               <p className="body-base">
-                Formal platforms in 2019 had terrible interfaces. The middle ground —
-                curriculum-aligned content with diagnostic feedback — was unoccupied.
+                Formal platforms in 2019 had terrible interfaces. Learning progression was not always clear to students, and teachers faced difficulty tracking performance efficiently.
               </p>
             </div>
             <div>
@@ -47,11 +47,12 @@ export function MSTContent() {
           </div>
         </Block>
 
-        <Block eyebrow="COMPETITIVE MATRIX">
+        <Block eyebrow="Market Study ">
           <p className="body-base mb-6">
-            Benchmarked against Udemy, Khan Academy, BYJU&apos;S across Asia. Qualitative
-            research revealed formal ed-tech platforms replicated static textbook material
-            with no real engagement.
+            The research included reviewing educational platforms and digital learning
+            products to better understand learning progression, engagement models,
+            dashboard structures, and accessibility patterns commonly used in formal
+            education platforms.
           </p>
           <p className="body-sm font-semibold mb-4" style={{ color: "var(--color-text)" }}>
             Understanding the gap we were filling
@@ -92,15 +93,15 @@ export function MSTContent() {
       </Section>
 
       <Section id="ux-design" number="02" title="UX Design">
-        <Block eyebrow="Research Insights">
-          <p className="body-base mt-6">
-            The research pointed to a clear direction. Students needed orientation within
-            lessons. Teachers needed control over content. Administrators needed visibility
-            at scale. The value proposition came directly from those gaps.
-          </p>
-        </Block>
 
-        <Block eyebrow="VALUE PROPOSITION MAP">
+        <Block eyebrow="VALUE PROPOSITION">
+          <p className="body-base mt-6 mb-6">
+            The platform aimed to create a structured and approachable learning experience
+            that supported both educational outcomes and usability. The focus was on
+            improving learning progression, simplifying navigation, and giving teachers
+            clearer visibility into student performance while supporting future platform
+            scalability.
+          </p>
           <Table
             headers={["CUSTOMER JOBS", "PAINS", "GAINS"]}
             rows={[
@@ -112,6 +113,11 @@ export function MSTContent() {
         </Block>
 
         <Block eyebrow="FEATURE ROADMAP">
+          <p className="body-base mb-6">
+            The platform evolved across multiple phases, expanding from core learning
+            experiences into classroom tools, localized products, and supporting
+            educational ecosystems.
+          </p>
           <Table
             headers={[
               { subtitle: "Phase 1 — MVP", label: "FOUNDATION" },
@@ -129,8 +135,8 @@ export function MSTContent() {
 
         <Block eyebrow="INFORMATION ARCHITECTURE">
           <p className="body-base mb-8">
-            Designed for students, teachers, and parents across multiple products:
-            mySecondTeacher, Apollo LMS, IVY video player, ebook reader, and Testpaper.
+            Special attention was given to scalability, content organization, and
+            consistency across modules.
           </p>
           <IADiagram
             rootLabel="mySecondTeacher ecosystem"
@@ -165,9 +171,8 @@ export function MSTContent() {
 
       <Section id="ui-design" number="03" title="UI Design">
         <DesignSystem
-          intro="Diagnostic Learning Ecosystem"
-          meta="A connected suite for students and teachers, emphasizing real-time feedback and curriculum alignment."
-          swatches={[
+          intro="Web App Design System"
+          meta="A lightweight design system was introduced to improve consistency across the platform and support scalable product development. The system included reusable UI components, typography hierarchy, spacing guidelines, dashboard patterns, and accessible visual structures designed for younger learners." swatches={[
             { name: "Primary", hex: "#985DEC" },
             { name: "Secondary", hex: "#39C9A7" },
             { name: "Red", hex: "#F15366" },
@@ -253,15 +258,16 @@ export function MSTContent() {
         />
 
         <Block eyebrow="KEY SCREENS">
-          <p className="body-base mb-8">
-            Designed for students, teachers, and parents across multiple products:
-            mySecondTeacher, Apollo LMS, IVY video player, ebook reader, and Testpaper.
+          <p className="body-base mb-10">
+            Key interfaces were designed across the student, teacher, and administrative
+            ecosystem, including learning dashboards, classroom experiences, interactive
+            video lessons, reporting tools, and ebook workflows.
           </p>
           <Carousel>
-            <ImageWithCaption src="/images/mst/screen-1.png" alt="Student Dashboard" caption="Student dashboard — centralized learning hub." />
-            <ImageWithCaption src="/images/mst/screen-2.png" alt="IVY Player" caption="IVY interactive video player with embedded quiz checkpoints." />
-            <ImageWithCaption src="/images/mst/screen-3.png" alt="Teacher Dashboard" caption="Teacher dashboard — real-time class analytics." />
-            <ImageWithCaption src="/images/mst/screen-4.png" alt="Ebook Reader" caption="Apollo LMS ebook reader with annotation tools." />
+            <ImageWithCaption src="/images/mst/screen-1.png" alt="Teacher Dashboard" caption="Teacher dashboard — Object-oriented learning." />
+            <ImageWithCaption src="/images/mst/screen-2.png" alt="Ebook Page" caption="Ebook overview page with the meta and subscribe button." />
+            <ImageWithCaption src="/images/mst/screen-3.png" alt="Course with IVY stat" caption="Showing the progress of a student for the particular IVY Subject" />
+            <ImageWithCaption src="/images/mst/screen-4.png" alt="Jelajah Ilmu Onboarding Screens" caption="Jelajah Ilmu - Indonesian version of the platform for schools in Indonesia" />
           </Carousel>
         </Block>
       </Section>
@@ -289,18 +295,18 @@ export function MSTContent() {
           items={[
             {
               num: "01",
-              title: "Engagement is architecture, not animation",
-              body: "The improvement in lesson completion came from structural changes — progress bars and checkpoints — not visual polish. The player looked almost identical before and after. What changed was how students understood their place within it.",
+              title: "Engagement is driven by learning clarity",
+              body: "The improvement in lesson completion came from making learning progress easier to understand through structured checkpoints, progress visibility, and guided interactions. Small UX decisions helped students better understand where they were, what came next, and how they were progressing.",
             },
             {
               num: "02",
-              title: "Product ownership changed my design decisions",
-              body: "Acting as Product Owner for Jelajah Ilmu meant writing user stories, running sprint reviews, and owning the backlog — not just designing screens. I made better design decisions because I understood the trade-offs firsthand, not from a brief.",
+              title: "Product ownership strengthened design decisions",
+              body: "Working as Product Owner for Jelajah Ilmu involved writing user stories, running sprint reviews, and managing product priorities alongside design responsibilities. Being closely involved in product decisions helped shape more practical and scalable design solutions grounded in real implementation constraints.",
             },
             {
               num: "03",
-              title: "Localization is pedagogy, not translation",
-              body: "Adapting for Indonesia meant rethinking assessment structure, lesson flow pacing, and mastery logic — not just swapping text. A culturally misaligned product, regardless of its quality, has no place in a local classroom.",
+              title: "Learning experiences must support real classroom behavior",
+              body: "Designing for formal education required understanding how students learn, how teachers manage classrooms, and how educational workflows operate beyond the interface itself. The platform needed to support structured learning experiences that felt approachable, adaptable, and practical for everyday classroom use.",
             },
           ]}
         />

@@ -123,8 +123,8 @@ body {
   .section-grid {
     grid-template-columns: 280px 1fr;
     gap: 4rem;
-    padding-top: var(--section-py-lg);
-    padding-bottom: var(--section-py-lg);
+    padding-top: var(--section-py);
+    padding-bottom: var(--section-py);
   }
 }
 
@@ -619,11 +619,6 @@ body {
   flex-wrap: wrap;
 }
 
-.ds-panel-title-group {
-  flex: 1;
-  min-width: 240px;
-}
-
 .ds-panel-title {
   font-size: var(--fs-h3);
   font-weight: 700;
@@ -637,7 +632,6 @@ body {
   font-size: var(--fs-body-sm);
   color: var(--color-muted);
   line-height: 1.6;
-  max-width: 32ch;
 }
 
 /* Two-row grid: color + type on top, components full width below */
